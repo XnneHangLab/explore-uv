@@ -1,4 +1,4 @@
-# uv.lock + pyproject.toml vs requirements.txt   
+<h1 align="center">uv.lock + pyproject.toml vs requirements.txt</h1>  
 
 <p align="center">
   <a href="#跨平台兼容性"><strong>跨平台兼容性</strong></a> ·

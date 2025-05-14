@@ -1,4 +1,4 @@
-# 不妨实践
+<h1 align="center">不妨实践</h1>
 
 <p align="center">
   <a href="#实践之前(安装 uv 以及最终建议)"><strong>实践之前(安装 uv 以及最终建议)</strong></a> ·
