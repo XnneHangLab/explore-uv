@@ -42,7 +42,7 @@
 
 - 跨平台兼容性
 - 自由的依赖库自定义
-- 简单的包编译和 pypi 上传
+- 简单的包编译和上传
 
 ## [不妨实践](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md)
 
