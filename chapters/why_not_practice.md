@@ -26,12 +26,6 @@
 
 具体参考:
 
-https://github.com/XnneHangLab/wexpect-uv
-
-https://github.com/yutto-dev/yutto
-
-https://github.com/XnneHangLab/XnneHangLab
-
 https://github.com/XnneHangLab/yutto-uiya
 
 或者图方便只是用来加速安装也可以简单用 uv+conda 来替代 pip+conda。用法上，就是把所有的:
