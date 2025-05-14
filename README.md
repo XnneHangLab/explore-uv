@@ -38,13 +38,13 @@
 
 > 但是我个人更建议自己查找噢.
 
-## [uv.lock + pyproject.toml vs requirements.txt]()
+## [uv.lock + pyproject.toml vs requirements.txt](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md)
 
 - 跨平台兼容性
 - 自由的依赖库自定义
 - 简单的包编译和 pypi 上传
 
-## 不妨实践
+## [不妨实践](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md)
 
 - 实践之前(安装 uv 的方式和最终建议)
 - 如何运行一个 uv 项目:
