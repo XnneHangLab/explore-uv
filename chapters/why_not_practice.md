@@ -1,11 +1,11 @@
 <h1 align="center">不妨实践</h1>
 
 <p align="center">
-  <a href="#实践之前(安装 uv 以及最终建议)"><strong>实践之前(安装 uv 以及最终建议)</strong></a> ·
-  <a href="#如何运行一个 uv 项目"><strong>如何运行一个 uv 项目</strong></a> ·
+  <a href="#实践之前(安装方式和最终建议)"><strong>实践之前(安装方式和最终建议)</strong></a> ·
+  <a href="#如何运行别人的项目"><strong>如何运行别人的项目</strong></a> ·
 </p>
 
-## 实践之前(安装 uv 以及最终建议)
+## 实践之前(安装方式和最终建议)
 
 安装 uv 以及最终建议( 使用前你总是需要先安装 )
 
@@ -25,13 +25,15 @@ https://github.com/XnneHangLab/XnneHangLab
 
 pip install → uv pip install
 
-## 如何运行一个 uv 项目
+## 如何运行别人的项目
 
 更多时候我们并不是从零开发一个项目而是使用或者试图向别人的项目 PR .
 
 那么这里就用上面三个例子为例.
 
-### [wexpect-uv](https://github.com/XnneHangLab/wexpect-uv.git)
+### wexpect-uv
+
+[仓库地址](https://github.com/XnneHangLab/wexpect-uv)
 
 先克隆下来:
 
@@ -122,7 +124,9 @@ dev:
 
 但对于简单的项目, 直接 `uv run script` 就可以了.
 
-### [yutto](https://github.com/yutto-dev/yutto.git)
+### yutto
+
+[仓库地址](https://github.com/yutto-dev/yutto)
 
 对于 `yutto` , 大部分都和 `wexpect-uv` 一致.
 
@@ -139,7 +143,13 @@ uv run yutto -h
 
 我们并不需要为 rust 的引入写更多的代码或者导致运行不一致, 只需要保证 `pyproject.toml` 里面编写正确即可.
 
-### [XnneHangLab](https://github.com/XnneHangLab/XnneHangLab.git)
+### yutto-uiya
+
+[仓库地址](https://github.com/XnneHangLab/yutto-uiya)
+
+### XnneHangLab
+
+[仓库地址](https://github.com/XnneHangLab/XnneHangLab)
 
 这是一个综合性的仓库. 它本身使用 uv 管理, 而它有几个特殊的依赖库, 也都在我的管理或者参与下.并且也都是使用 uv 管理. 我对 uv 的理解也都是在这个仓库中逐渐形成的.
 
