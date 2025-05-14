@@ -5,6 +5,17 @@
   <a href="#如何运行别人的项目"><strong>如何运行别人的项目</strong></a> ·
 </p>
 
+<p align="center">
+ 通过下面四个项目进行逐步解析<br>
+</p>
+
+<p align="center">
+  <a href="#wexpect-uv">wexpect-uv</a> ·
+  <a href="#yutto">yutto</a>
+  <a href="#yutto-uiya">yutto-uiya</a>
+  <a href="#XnneHangLab">XnneHangLab</a> ·
+</p>
+
 ## 实践之前(安装方式和最终建议)
 
 安装 uv 以及最终建议( 使用前你总是需要先安装 )
@@ -20,6 +31,8 @@ https://github.com/XnneHangLab/wexpect-uv
 https://github.com/yutto-dev/yutto
 
 https://github.com/XnneHangLab/XnneHangLab
+
+https://github.com/XnneHangLab/yutto-uiya
 
 或者图方便只是用来加速安装也可以简单用 uv+conda 来替代 pip+conda。用法上，就是把所有的:
 
