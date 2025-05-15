@@ -1,5 +1,4 @@
-<h1 align="center">安装 pytorch 包并且指定 cpu 或者 cuda 版本</h1> 
- 
+<h1 align="center">安装 pytorch 包并且指定 cpu 或者 cuda 版本</h1>  
 
 - [https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch](https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch)
 
@@ -80,33 +79,9 @@ Builds for different accelerators are published to different indexes. For exampl
 
 ## 解决：
 
-最后我自己敲定的相关配置是这样的:<br>
+最后我自己敲定的相关配置是这样的: [pyproject.toml](https://github.com/MrXnneHang/test-uv-index/blob/master/pyproject.toml)<br>
 
-```toml
-dependencies = [
-    "funasr==1.2.4",
-    "pyaml==25.1.0",
-    "torch==2.1.0",
-    "torchaudio==2.1.0",
-]
-
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
-
-[tool.uv.sources]
-torch = [
-  { index = "pytorch-cpu" },
-]
-torchaudio = [
-  { index = "pytorch-cpu" },
-]
-```
-
-之后我们 `uv lock`, 然后 push 上去。<br>
-
-ps: 如果在配置 cuda 版本的时候，我们应该考虑使用 previous 版本的 cuda,比如使用 11.8.而不是使用最新的 12.x 甚至 13.x 因为用户的驱动不会一直是最新的，而新的驱动是兼容旧的 cu 版本的。除非在性能上有非常高的提升，但是一般来说是没有太大区别的。<br>
+ps: 如果你是配置 cuda 版本，我们应该考虑使用 previous 版本的 cuda,比如使用 11.8.而不是使用最新的 12.x 甚至 13.x 因为用户的驱动不会一直是最新的，而新的驱动是兼容旧的 cu 版本的。除非在性能上有非常高的提升，但是一般来说是没有太大区别的。<br>
 
 ## 总结
 
@@ -114,98 +89,74 @@ ps: 如果在配置 cuda 版本的时候，我们应该考虑使用 previous 版
 
 比如用 *https://mirror.nju.edu.cn/pytorch/whl/cu126* 替换 *https://download.pytorch.org/whl/cpu*. 不过, 有时候似乎镜像的安装会[存在问题](https://github.com/astral-sh/uv/issues/12460), 这种时候你稍微升级或者降级所选的 pytorch 版本就可以解决, 不宜用最新, 不宜用太旧, 除非你是框架开发者.<br>
 
-> 这里的 `explicit = true` 参数是指, 除非指定使用这个 index, 否则其他包不会使用这个 index. 与之类似的还有 `default=true`(原本默认是 pypi, 我们可以用 default 来替换默认源为我们指定的源.)
-> 详细参考: [pypi_index_mirror](../chapters/pypi_index_mirror.md)
+这里是一个参考仓库: [MrXnneHang/test-uv-index](https://github.com/MrXnneHang/test-uv-index)
 
 ## 从 github 上安装：
 
-最终成功安装了=-=。<br>
+最终尝试从 github 安装 =-=。<br>
 
 ```shell
-xnne@xnne-PC:~/code/test/Auto_Caption_Generated_Offline$ uv venv -p 3.10 --seed
-Using CPython 3.10.16
-Creating virtual environment with seed packages at: .venv
- + pip==25.0.1
- + setuptools==75.8.2
- + wheel==0.45.1
-
-xnne@xnne-PC:~/code/test/Auto_Caption_Generated_Offline$ uv pip install git+https://github.com/MrXnneHang/Auto_Caption_Generated_Offline@v2.4-cpu
-Resolved 63 packages in 5.85s
-Prepared 2 packages in 11m 45s
-...
- + torch==2.1.0+cpu
- + torch-complex==0.4.4
- + torchaudio==2.1.0+cpu
- + tqdm==4.67.1
-...
-...
-```
-
-不过在运行的时候 torch 的 numpy 和 funasr 的 numpy 出现了一点冲突：<br>
-
-```shell
-xnne@xnne-PC:~/code/test/Auto_Caption_Generated_Offline$ uv run test-ACGO
-      Built auto-caption-generate-offline @ file:///home/xnne/code/test/Auto_Caption_Generated_Offline
-Uninstalled 1 package in 0.57ms
-Installed 1 package in 0.95ms
-
-A module that was compiled using NumPy 1.x cannot be run in
-NumPy 2.1.3 as it may crash. To support both 1.x and 2.x
-versions of NumPy, modules must be compiled with NumPy 2.0.
-Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
-
-If you are a user of the module, the easiest solution will be to
-downgrade to 'numpy<2' or try to upgrade the affected module.
-We expect that some modules will need time to support NumPy 2.
-
-Traceback (most recent call last):  File "/home/xnne/code/test/Auto_Caption_Generated_Offline/.venv/bin/test-ACGO", line 4, in <module>
-    from uiya.test import main
-  File "/home/xnne/code/test/Auto_Caption_Generated_Offline/src/uiya/test.py", line 1, in <module>
-    import funasr
-```
-
-手动降级到`1.26.4`后解决。<br>
-
-```shell
-uv add numpy==1.26.4
-uv lock
-```
-
-```shell
-xnne@xnne-PC:~/code/test$ uv venv -p 3.10 --seed
-Using CPython 3.10.16
-Creating virtual environment with seed packages at: .venv
- + pip==25.0.1
- + setuptools==75.8.2
- + wheel==0.45.1
+➜  explore-uv git:(tool-uv-index) uv venv -p 3.11.11
+Using CPython 3.11.11
+Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
-
-xnne@xnne-PC:~/code/test$ uv pip install git+https://github.com/MrXnneHang/Auto_Caption_Generated_Offline@v2.4-cpu
-Resolved 63 packages in 7.90s
-Prepared 2 packages in 603ms
-Installed 63 packages in 259ms
- + aliyun-python-sdk-core==2.16.0
- + aliyun-python-sdk-kms==2.16.5
- + antlr4-python3-runtime==4.9.3
- + audioread==3.0.1
- + auto-caption-generate-offline==2.4.0 (from git+https://github.com/MrXnneHang/Auto_Caption_Generated_Offline@5f03a04ebdbe4b7a1329302b551e58092e8af9ee)
- ...
- + torch==2.1.0+cpu 
- + torch-complex==0.4.4   
- + torchaudio==2.1.0+cpu
- + tqdm==4.67.1
- ...
-
-xnne@xnne-PC:~/code/test$ uv run test-ACGO
-funasr:1.2.4
+➜  explore-uv git:(tool-uv-index) ✗ uv pip install git+https://github.com/MrXnneHang/test-uv-index@master
+    Updated https://github.com/MrXnneHang/test-uv-index (fc288a1ed9a5e1bc6ed8fee8cc9ddc42cfd826f7)
+Resolved 21 packages in 14.61s
+      Built test-uv-index @ git+https://github.com/MrXnneHang/test-uv-index@fc288a1ed9a5e1bc6ed8fee8cc9ddc42cfd826f7
+Prepared 6 packages in 2.80s
+Installed 21 packages in 195ms
+ + contourpy==1.3.2
+ + cycler==0.12.1
+ + filelock==3.18.0
+ + fonttools==4.58.0
+ + fsspec==2025.3.2
+ + jinja2==3.1.6
+ + kiwisolver==1.4.8
+ + markupsafe==3.0.2
+ + matplotlib==3.10.1
+ + mpmath==1.3.0
+ + networkx==3.4.2
+ + numpy==1.26.4
+ + packaging==25.0
+ + pillow==11.2.1
+ + pyparsing==3.2.3
+ + python-dateutil==2.9.0.post0
+ + six==1.17.0
+ + sympy==1.14.0
+ + test-uv-index==1.0.0 (from git+https://github.com/MrXnneHang/test-uv-index@fc288a1ed9a5e1bc6ed8fee8cc9ddc42cfd826f7)
+ + torch==2.1.0+cpu
+ + typing-extensions==4.13.2
+➜  explore-uv git:(tool-uv-index) ✗ uv run test-uv
+matplotlib:3.10.1
+numpy:1.26.4
 torch:2.1.0+cpu
-torchaudio:2.1.0+cpu
+torch cuda available:False
+tensor([ 0.0000e+00,  6.3424e-02,  1.2659e-01,  1.8925e-01,  2.5115e-01,
+         3.1203e-01,  3.7166e-01,  4.2979e-01,  4.8620e-01,  5.4064e-01,
+         5.9291e-01,  6.4279e-01,  6.9008e-01,  7.3459e-01,  7.7615e-01,
+         8.1458e-01,  8.4973e-01,  8.8145e-01,  9.0963e-01,  9.3415e-01,
+         9.5490e-01,  9.7181e-01,  9.8481e-01,  9.9384e-01,  9.9887e-01,
+         9.9987e-01,  9.9685e-01,  9.8982e-01,  9.7880e-01,  9.6384e-01,
+         9.4500e-01,  9.2235e-01,  8.9599e-01,  8.6603e-01,  8.3257e-01,
+         7.9576e-01,  7.5575e-01,  7.1269e-01,  6.6677e-01,  6.1816e-01,
+         5.6706e-01,  5.1368e-01,  4.5823e-01,  4.0093e-01,  3.4202e-01,
+         2.8173e-01,  2.2031e-01,  1.5800e-01,  9.5056e-02,  3.1728e-02,
+        -3.1728e-02, -9.5056e-02, -1.5800e-01, -2.2031e-01, -2.8173e-01,
+        -3.4202e-01, -4.0093e-01, -4.5823e-01, -5.1368e-01, -5.6706e-01,
+        -6.1816e-01, -6.6677e-01, -7.1269e-01, -7.5575e-01, -7.9576e-01,
+        -8.3257e-01, -8.6603e-01, -8.9599e-01, -9.2235e-01, -9.4500e-01,
+        -9.6384e-01, -9.7880e-01, -9.8982e-01, -9.9685e-01, -9.9987e-01,
+        -9.9887e-01, -9.9384e-01, -9.8481e-01, -9.7181e-01, -9.5490e-01,
+        -9.3415e-01, -9.0963e-01, -8.8145e-01, -8.4973e-01, -8.1458e-01,
+        -7.7615e-01, -7.3459e-01, -6.9008e-01, -6.4279e-01, -5.9291e-01,
+        -5.4064e-01, -4.8620e-01, -4.2979e-01, -3.7166e-01, -3.1203e-01,
+        -2.5115e-01, -1.8925e-01, -1.2659e-01, -6.3424e-02, -2.4493e-16],
+       dtype=torch.float64)
 ```
 
-## 乌龙
+你也可以按照仓库里的做法, 先克隆然后直接在源码目录里 `uv run test-uv`.
 
-中间还有一个小乌龙。就是我在项目目录下，运行`uv pip install git+`->`uv run`,而我目录下存在 pyproject.toml 和 uv.lock,那么运行的肯定不是 github 上面那个，而是在 `uv run` 时根据我项目中 pyproject.toml 生成的版本。于是乎我也就陷入了一个没有更新代码，`uv run`一直报原来的 bug 的问题。git pull 后解决。<br>
+不过值得一提的是, 我以前陷入了一个误区, 我先克隆了仓库, 然后又从 github 仓库安装, 最后又 `uv run` , 实际上那样做从 github 安装的步骤是无效的, 因为这个过程发生了两次 build , 第一次在`uv pip install git+` 时, 第二次发生在 `uv run` 时(它根据源码安装), 所以你总是在运行源码.
 
-所以，如果已经在源码仓库里了, 那么直接 `uv run` 就会使用最新版本的源码, 而不必要先提交到远程仓库再 `uv pip install git+<repo>`(这一步毫无意义, 因为它安装的版本完全被下一步的 uv run 忽略了).<br>
-
-如果之后 cuda 版本我遇到问题可能会再次补充。<br>
+另外, `uv pip install git+` 虽然看上去和 `pip install git+` 非常地像, 但是, 它用的是 uv 自己的引擎, 速度是 pip 的好多倍.
