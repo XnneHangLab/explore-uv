@@ -33,7 +33,7 @@ If Python is already installed on your system, uv will detect and use it without
 
 - [官方文档中的 python-install-mirror 词条](https://docs.astral.sh/uv/reference/settings/#python-install-mirror)
 
-- [我们将要使用的镜像源](https://github.com/tuna/issues/issues/2125)
+- [[镜像请求] python-build-standalone #2125](https://github.com/tuna/issues/issues/2125)
 
 可以得知, 我们可以简单地在 `pyproject.toml` 中加上这么一段来替换 python 镜像.
 
