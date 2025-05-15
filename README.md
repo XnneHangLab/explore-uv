@@ -38,20 +38,20 @@
 
 > 但是我个人更建议自己查找噢.
 
-## [uv.lock + pyproject.toml vs requirements.txt](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md)
+## [uv.lock + pyproject.toml vs requirements.txt](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md)
 
-- [跨平台兼容性](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#跨平台兼容性)
-- [自由的依赖库自定义](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#自由的依赖库自定义)
-- [简单的包编译和上传](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#简单的包编译和上传)
+- [跨平台兼容性](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#跨平台兼容性)
+- [自由的依赖库自定义](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#自由的依赖库自定义)
+- [简单的包编译和上传](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#简单的包编译和上传)
 
-## [不妨实践](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md)
+## [不妨实践](chapters/why_not_practice.md)
 
-- [实践之前(安装方式和最终建议)](<https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#实践之前(安装方式和最终建议)>)
-- [如何运行别人的项目](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#如何运行别人的项目)
-  - [wexpect-uv](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#wexpect-uv)
-  - [yutto](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#yutto)
-  - [yutto-uiya](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#yutto-uiya)
-  - [XnneHangLab](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#XnneHangLab)
+- [实践之前(安装方式和最终建议)](<chapters/why_not_practice.md#实践之前(安装方式和最终建议)>)
+- [如何运行别人的项目](chapters/why_not_practice.md#如何运行别人的项目)
+  - [wexpect-uv](chapters/why_not_practice.md#wexpect-uv)
+  - [yutto](chapters/why_not_practice.md#yutto)
+  - [yutto-uiya](chapters/why_not_practice.md#yutto-uiya)
+  - [XnneHangLab](chapters/why_not_practice.md#XnneHangLab)
 
 # 第二部分: 更深入地解决问题
 
