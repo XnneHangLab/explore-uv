@@ -53,6 +53,6 @@
   - [yutto-uiya](chapters/why_not_practice.md#yutto-uiya)
   - [XnneHangLab](chapters/why_not_practice.md#XnneHangLab)
 
-# 第二部分: 更深入地解决问题
+# 第二部分: 解决一些实际问题
 
 - [使用镜像安装 python | python-install-mirror](chapters/python_install_mirror.md)
