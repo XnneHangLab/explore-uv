@@ -65,3 +65,4 @@
 
 - [使用镜像安装 python | python-install-mirror](chapters/python_install_mirror.md)
 - [安装 pytorch 包并且指定 cpu 或者 cuda 版本并使用镜像](chapters/pytorch_index_mirror.md#总结)
+- [使用 pypi 镜像源安装 python package](chapters/pypi_index_mirror.md)
