@@ -40,6 +40,8 @@
 
 ## [uv.lock + pyproject.toml vs requirements.txt](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md)
 
+> 如果你是从 `poetry` 转过来的, 那么你完全可以从第二部分开始.
+
 - [跨平台兼容性](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#跨平台兼容性)
 - [自由的依赖库自定义](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#自由的依赖库自定义)
 - [简单的包编译和上传](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#简单的包编译和上传)
