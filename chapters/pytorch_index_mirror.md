@@ -1,4 +1,4 @@
-<h1 align="center">安装 pytorch 包并且指定 cpu 或者 cuda 版本</h1>  
+<h1 align="center">安装 pytorch 包并且指定 cpu 或者 cuda 版本并使用镜像</h1>  
 
 - [https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch](https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch)
 
