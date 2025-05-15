@@ -52,3 +52,7 @@
   - [yutto](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#yutto)
   - [yutto-uiya](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#yutto-uiya)
   - [XnneHangLab](https://github.com/XnneHangLab/explore-uv/tree/master/chapters/why_not_practice.md#XnneHangLab)
+
+# 第二部分: 更深入地解决问题
+
+- [使用镜像安装 python | python-install-mirror](chapters/python_install_mirror.md)
