@@ -40,6 +40,8 @@
 
 ## [uv.lock + pyproject.toml vs requirements.txt](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md)
 
+> 如果你是从 `poetry` 转过来的, 那么你完全可以从第二部分开始.
+
 - [跨平台兼容性](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#跨平台兼容性)
 - [自由的依赖库自定义](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#自由的依赖库自定义)
 - [简单的包编译和上传](chapters/uv_lock_and_pyproject_toml_vs_requirements_txt.md#简单的包编译和上传)
@@ -55,4 +57,15 @@
 
 # 第二部分: 解决一些实际问题
 
+## 使用镜像源:
+
+有时候我们的用户可能无法连接外网, 那么在这种网络限制下, 如何把项目传递给用户运行就显得重要.
+
+在 conda 那边, 我们可以随意地拿捏 env 目录, 只要不跨平台, 同系统用户可以共用一个 env, 也就可以直接压缩包含 `env` 和源码做成整合包(懒人包/一键包), 但是对于 uv 是不可行的. 因为 `.venv` 下的 python 只是一个软连接, 我们只能让用户在初次运行时自己安装所有依赖项.
+
+**如何让用户在无法连接外网的时候正常运行我们的项目:**
+
 - [使用镜像安装 python | python-install-mirror](chapters/python_install_mirror.md)
+- [直接使用 python 而不是 python 的 link](chapters/python_copy_mode.md)
+- [安装 pytorch 包并且指定 cpu 或者 cuda 版本并使用镜像](chapters/pytorch_index_mirror.md#总结)
+- [使用 pypi 镜像源安装 python package](chapters/pypi_index_mirror.md)
