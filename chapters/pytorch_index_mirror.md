@@ -1,4 +1,5 @@
-## Refrence:
+<h1 align="center">安装 pytorch 包并且指定 cpu 或者 cuda 版本</h1> 
+ 
 
 - [https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch](https://docs.astral.sh/uv/guides/integration/pytorch/#installing-pytorch)
 
@@ -103,16 +104,18 @@ torchaudio = [
 ]
 ```
 
+之后我们 `uv lock`, 然后 push 上去。<br>
+
+ps: 如果在配置 cuda 版本的时候，我们应该考虑使用 previous 版本的 cuda,比如使用 11.8.而不是使用最新的 12.x 甚至 13.x 因为用户的驱动不会一直是最新的，而新的驱动是兼容旧的 cu 版本的。除非在性能上有非常高的提升，但是一般来说是没有太大区别的。<br>
+
+## 总结
+
 **你既可以用 index 来选定 cpu 或者 cuda, 也可以用 index 来使用选择镜像源哦。**<br>
 
 比如用 *https://mirror.nju.edu.cn/pytorch/whl/cu126* 替换 *https://download.pytorch.org/whl/cpu*. 不过, 有时候似乎镜像的安装会[存在问题](https://github.com/astral-sh/uv/issues/12460), 这种时候你稍微升级或者降级所选的 pytorch 版本就可以解决, 不宜用最新, 不宜用太旧, 除非你是框架开发者.<br>
 
 > 这里的 `explicit = true` 参数是指, 除非指定使用这个 index, 否则其他包不会使用这个 index. 与之类似的还有 `default=true`(原本默认是 pypi, 我们可以用 default 来替换默认源为我们指定的源.)
 > 详细参考: [pypi_index_mirror](../chapters/pypi_index_mirror.md)
-
-之后我们 `uv lock`, 然后 push 上去。<br>
-
-ps: 如果在配置 cuda 版本的时候，我们应该考虑使用 previous 版本的 cuda,比如使用 11.8.而不是使用最新的 12.x 甚至 13.x 因为用户的驱动不会一直是最新的，而新的驱动是兼容旧的 cu 版本的。除非在性能上有非常高的提升，但是一般来说是没有太大区别的。<br>
 
 ## 从 github 上安装：
 
